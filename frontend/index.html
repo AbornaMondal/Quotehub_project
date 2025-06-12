@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QuoteHub</title>
+</head>
+<body>
+  <h1>Random Quote</h1>
+  <blockquote id="quote"></blockquote>
+  <button onclick="fetchQuote()">Get Another Quote</button>
+
+  <script>
+    function fetchQuote() {
+      fetch('/api/quote')
+        .then(response => response.json())
+        .then(data => document.getElementById('quote').innerText = data.quote);
+    }
+    fetchQuote();
+  </script>
+</body>
+</html>
